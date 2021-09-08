@@ -1,6 +1,7 @@
 #ifndef ARRAYINT_H
 #define ARRAYINT_H
 
+//TASK 1
 #include <cassert> // для assert()
 
 class ArrayInt
@@ -159,12 +160,82 @@ public:
 			sort(first, j);
 	}
 
+	void print()
+	{
+		for (int i{}; i < m_length; i++)
+			std::cout << m_data[i] << ' ';
+
+		std::cout << '\n';
+	}
+
 	~ArrayInt()
 	{
 		delete[] m_data;
 	}
 };
 		
+//TASK 3
+enum CardSuit
+{
+	clubs,
+	spades,
+	heart,
+	diamonds
+};
+
+enum CardValue
+{
+	six = 6, seven, eight,
+	nine, ten, jack = 2,
+	lady, king, ace = 11
+};
+
+class Card
+{
+	CardSuit suit;
+	CardValue value;
+	bool position;
+public:
+	void Flip()
+	{
+		if (position)
+			position = false;
+		else
+			position = true;
+	}
+
+	CardValue GetValue()
+	{
+		return value;
+	}
+
+};
+
+class Hand
+{
+	std::vector<Card*> card;
+
+public:
+	void Add(Card* newCard)
+	{
+		card.push_back(newCard);
+	}
+
+	void Clear()
+	{
+		card.clear();
+	}
+
+	int GetValue()
+	{
+		int sumCard{};
+		for (int i{}; i < card.size(); i++)
+		{
+			sumCard += card[i]->GetValue();
+		}
+		return sumCard;
+	}
+};
 
 #endif
 
