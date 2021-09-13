@@ -1,6 +1,6 @@
 #ifndef ARRAYINT_H
 #define ARRAYINT_H
-
+#include<vector>
 //TASK 1
 #include <cassert> // для assert()
 

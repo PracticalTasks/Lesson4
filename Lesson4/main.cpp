@@ -1,6 +1,5 @@
 #include<iostream>
 #include"Arrayint.h"
-#include<vector>
 #include<algorithm>
 
 int main()
